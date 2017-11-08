@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        {% load static %}
+        <script src="{% static "/bower_components/angular/angular.js" %}"></script>
+        <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+        <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+        <script type="text/javascript" >
+            var app = angular.module("app",['ngTable'], function($interpolateProvider) {
+                $interpolateProvider.startSymbol('[{');
+                $interpolateProvider.endSymbol('}]');
+      });
+            app.controller('myCtrl',function($scope,NgTableParams){
+                var self = this;
+                var data = [{name: "Moroni", age: 50} /*,*/];
+                self.tableParams = new NgTableParams({}, {
+                    getData :function(params){
+                            return [];
+                    }
+                });
+            })
+        </script>
+    </head>
+    <body ng-app="app" ng-controller="myCtrl as vm">
+        <h1>MuyPicky.com</h1>[{ aa }]
+        <a href="/">Home</a>
+        <a href="/contact/">Contact</a>
+        <a href="/about/">About</a>
+        <div class="container">
+            {% block content%}
+            {% endblock content%}
+        </div>  
+        <table ng-table="vm.tableParams " class="table" show-filter="true" ng-show="$data.length > 0">
+            <tr ng-repeat="user in $data">
+                <td title="'Name'"  sortable="'name'">
+                    [{user.name}]</td>
+                <td title="'Age'" sortable="'age'">
+                    [{user.age}]</td>
+            </tr>
+        </table>      
+    </body>
+</html>

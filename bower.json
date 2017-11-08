@@ -1,0 +1,23 @@
+{
+  "name": "bower.json",
+  "homepage": "https://github.com/nookdanger/django_project",
+  "authors": [
+    "nook <nookdanger@gmail.com>"
+  ],
+  "description": "bower",
+  "main": "bower",
+  "keywords": [
+    "bower"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-table": "^4.0.0"
+  }
+}
